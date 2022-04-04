@@ -1,7 +1,7 @@
 
   
   .header {
-    background-color: var(--light-primary-color);
+    background-color: var(--light-secondary-color);
     padding: var(--sp-0-5);
     position: sticky;
     top: 0;
@@ -11,7 +11,7 @@
   
   .nav__container {
     height: 4rem;
-    background-color: var(--light-primary-color);
+    background-color: var(--light-secondary-color);
     justify-content: space-evenly;
   }
   
