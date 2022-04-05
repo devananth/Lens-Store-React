@@ -1,24 +1,3 @@
-/* .product__filter {
-    width: 25rem;
-    height: calc(100vh - 4rem);
-    position: sticky;
-    left: 0;
-    overflow-y: scroll;
-    border-right: 1px solid var(--light-secondary-color);
-  }
-
-  .product__filter .form-group {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-0-5);
-    margin-bottom: 0;
-  }
-  
-  .form-label {
-    margin-bottom: 0;
-    display: inline-block;
-  } */
-
   .products__filter {
     width: 20rem;
     border-right: 1px solid black;
