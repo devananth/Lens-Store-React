@@ -4,4 +4,6 @@ export { Footer } from "./Footer/footer";
 
 export { Divider } from "./Divider/divider";
 
-export { CategoryCard } from "./Card";
+export { CategoryCard, Product } from "./Card";
+
+export { FilterList, FilterListItem } from "./ProductFilters";

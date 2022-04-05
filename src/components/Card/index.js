@@ -1,1 +1,3 @@
-export { CategoryCard } from "./CategoryCard/category-card";
+export { CategoryCard } from "./CategoryCard/CategoryCard";
+
+export { Product } from "./ProductCard/Product";
