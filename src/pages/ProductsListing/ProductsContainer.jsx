@@ -4,7 +4,6 @@ import { getFilteredProducts } from "../../Utils/productsUtils";
 
 const ProductsContainer = () => {
   const { loading, products, error } = useProduct();
-  console.log(loading, error, products);
   const filteredProducts = getFilteredProducts(products) ?? [];
 
   return (
@@ -17,7 +16,7 @@ const ProductsContainer = () => {
           filteredProducts.map((product) => {
             return (
               <li key={product._id}>
-                <Product {...product} />
+                <Product productDetails={product} />
               </li>
             );
           })}
