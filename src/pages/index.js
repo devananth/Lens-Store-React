@@ -4,7 +4,7 @@ export { Login } from "./Login/login";
 
 export { SignUp } from "./SignUp/SignUp";
 
-export { Cart } from "./Cart/cart";
+export { Cart } from "./Cart/Cart";
 
 export { ProductListing } from "./ProductsListing/ProductsListing";
 
