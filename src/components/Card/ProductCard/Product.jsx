@@ -20,8 +20,6 @@ const Product = ({ productDetails }) => {
   const { wishlist } = wishlistState;
 
   const wishlistClickHandler = () => {
-    console.log(itemNotInList(_id, wishlist));
-
     if (!isInWishlist && itemNotInList(_id, wishlist)) {
       wishlistDispatch({
         type: WISHLIST_ACTIONS.ADD_TO_WISHLIST,

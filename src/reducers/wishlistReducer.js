@@ -5,8 +5,6 @@ const wishlistReducer = (state, action) => {
 
   const { wishlist } = state;
 
-  console.log(type, payload, wishlist);
-
   switch (type) {
     case WISHLIST_ACTIONS.ADD_TO_WISHLIST:
       return { ...state, wishlist: [...state.wishlist, payload] };
