@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavBar, CartCard, CartPriceCard } from "../../components";
+import { NavBar, CartPriceCard } from "../../components";
 import { useCart } from "../../contexts";
 import { CartContainer } from "./CartContainer";
 
