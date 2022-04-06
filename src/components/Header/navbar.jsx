@@ -1,8 +1,11 @@
 import { SearchBar } from "./navbar-search";
 import { Link } from "react-router-dom";
 import "./header.css";
+import { useWishlist } from "../../contexts";
 
 const NavBar = () => {
+  const { wishlistState } = useWishlist();
+
   return (
     <header className="header d-flex col">
       <nav className="nav__container">
@@ -34,7 +37,7 @@ const NavBar = () => {
                   <span className="icon nav__icon badge-container">
                     <i className="fas fa-heart"></i>
                     <span className="badge badge-icon d-flex xy-center txt-bold">
-                      2
+                      {wishlistState.wishlist.length}
                     </span>
                   </span>
 
