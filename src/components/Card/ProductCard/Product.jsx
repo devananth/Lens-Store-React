@@ -1,6 +1,7 @@
-import { useWishlist } from "../../../contexts/wishlist-context";
-import { WISHLIST_ACTIONS } from "../../../Utils";
+import { useWishlist, useCart } from "../../../contexts";
+import { WISHLIST_ACTIONS, CART_ACTIONS } from "../../../Utils";
 import { itemNotInList } from "../../../Utils";
+import { ProductBtn } from "./ProductBtn";
 
 const Product = ({ productDetails }) => {
   const {
@@ -17,7 +18,19 @@ const Product = ({ productDetails }) => {
 
   const { wishlistState, wishlistDispatch } = useWishlist();
 
+  const {
+    cartState: { cart },
+    cartDispatch,
+  } = useCart();
+
   const { wishlist } = wishlistState;
+
+  const addToCartHandler = () => {
+    cartDispatch({
+      type: CART_ACTIONS.ADD_TO_CART,
+      payload: productDetails,
+    });
+  };
 
   const wishlistClickHandler = () => {
     if (!isInWishlist && itemNotInList(_id, wishlist)) {
@@ -33,9 +46,7 @@ const Product = ({ productDetails }) => {
     }
   };
 
-  const isInWishlistFunc = (id) => wishlist.some(({ _id }) => id === _id);
-
-  const iconColor = isInWishlistFunc(_id) ? "red" : "black";
+  const iconColor = !itemNotInList(_id, wishlist) ? "red" : "";
 
   return (
     <div
@@ -67,7 +78,7 @@ const Product = ({ productDetails }) => {
           <span className="txt-bold danger">{`${offer_percentage}% OFF`}</span>
         </div>
         <div className="d-flex space-bw">
-          <button className="btn btn-primary">Add to Cart</button>
+          <ProductBtn productId={_id} onClickHandler={addToCartHandler} />
           <div className="rating__badge">
             <span>{rating}</span>
             <i className="fa fa-star rating__star__icon checked"></i>

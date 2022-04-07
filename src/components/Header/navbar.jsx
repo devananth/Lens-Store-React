@@ -1,10 +1,13 @@
 import { SearchBar } from "./navbar-search";
 import { Link } from "react-router-dom";
 import "./header.css";
-import { useWishlist } from "../../contexts";
+import { useWishlist, useCart } from "../../contexts";
 
 const NavBar = () => {
   const { wishlistState } = useWishlist();
+  const {
+    cartState: { cart },
+  } = useCart();
 
   return (
     <header className="header d-flex col">
@@ -51,7 +54,7 @@ const NavBar = () => {
                   <span className="icon nav__icon badge-container">
                     <i className="fas fa-shopping-cart"></i>
                     <span className="badge badge-icon d-flex xy-center txt-bold">
-                      2
+                      {cart.length}
                     </span>
                   </span>
                   <span className="nav__icon__text">Cart</span>
