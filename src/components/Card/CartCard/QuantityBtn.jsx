@@ -4,7 +4,11 @@ const QuantityBtn = ({ quantity, increaseQuantity, decreaseQuantity }) => {
   return (
     <div className="d-flex y-center gap-2">
       <span className="txt-sbold">Quantity : </span>
-      <button className="quantity__btn" onClick={decreaseQuantity}>
+      <button
+        className="quantity__btn"
+        onClick={decreaseQuantity}
+        disabled={quantity === 1}
+      >
         -
       </button>
       <span className="quantity__btn">{quantity}</span>

@@ -15,7 +15,9 @@ const Wishlist = () => {
       </h4>
       <section className="wishlist__wrapper d-flex xy-center wrap gap-2 m-sm">
         {wishlist &&
-          wishlist.map((product) => <Product productDetails={product} />)}
+          wishlist.map((product) => (
+            <Product key={product._id} productDetails={product} />
+          ))}
       </section>
     </>
   );

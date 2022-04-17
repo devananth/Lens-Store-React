@@ -100,8 +100,6 @@ const getFilteredProducts = (products) => {
     filterState.filterByPriceRange
   );
 
-  console.log("Price : ", filteredByPriceRange);
-
   const sortedProducts = sortBy(filteredByPriceRange, filterState.sortBy);
 
   return sortedProducts;

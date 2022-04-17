@@ -22,10 +22,12 @@ const CartCard = ({ productDetails }) => {
     cartDispatch,
   } = useCart();
 
-  const { wishlistDispatch } = useWishlist();
+  const {
+    wishlistState: { wishlist },
+    wishlistDispatch,
+  } = useWishlist();
 
   const increaseQuantity = (id) => {
-    console.log("Increase ", id);
     cartDispatch({
       type: CART_ACTIONS.INCREASE_QUANTITY,
       payload: { ...productDetails },
@@ -49,10 +51,14 @@ const CartCard = ({ productDetails }) => {
   };
 
   const addToWishList = () => {
-    wishlistDispatch({
-      type: WISHLIST_ACTIONS.ADD_TO_WISHLIST,
-      payload: { ...productDetails },
-    });
+    const currProduct = wishlist.find(({ _id: id }) => id === _id);
+
+    if (currProduct === undefined) {
+      wishlistDispatch({
+        type: WISHLIST_ACTIONS.ADD_TO_WISHLIST,
+        payload: { ...productDetails },
+      });
+    }
     removeFromCart();
   };
 
