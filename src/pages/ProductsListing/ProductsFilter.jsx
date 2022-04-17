@@ -87,7 +87,7 @@ const ProductsFilter = () => {
         </button>
       </div>
       <hr />
-      {console.log("After Loading : ", filterByCategory)}
+
       <FilterList
         filterHeading={"Category"}
         filterOptionsList={categoryNameList}
