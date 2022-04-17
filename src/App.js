@@ -1,6 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Home, Login, SignUp, ProductListing, Wishlist, Cart } from "./pages";
+import {
+  Home,
+  Login,
+  SignUp,
+  ProductListing,
+  Wishlist,
+  Cart,
+  PageNotFound,
+} from "./pages";
 
 function App() {
   return (
@@ -12,6 +20,7 @@ function App() {
         <Route path="/products" element={<ProductListing />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
