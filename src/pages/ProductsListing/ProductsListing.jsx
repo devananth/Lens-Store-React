@@ -1,8 +1,10 @@
 import { NavBar } from "../../components";
 import { ProductsContainer } from "./ProductsContainer";
 import { ProductsFilter } from "./ProductsFilter";
+import { useDocumentTitle } from "../../custom-hooks";
 
 const ProductListing = () => {
+  useDocumentTitle("Products | Lens Store");
   return (
     <>
       <NavBar />
