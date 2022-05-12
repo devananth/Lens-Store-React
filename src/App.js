@@ -8,6 +8,7 @@ import {
   Wishlist,
   Cart,
   PageNotFound,
+  MockAPI,
 } from "./pages";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/mockman" element={<MockAPI />} />
       </Routes>
     </div>
   );

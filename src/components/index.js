@@ -8,4 +8,4 @@ export { CategoryCard, Product, CartCard, CartPriceCard } from "./Card";
 
 export { FilterList, FilterListItem } from "./ProductFilters";
 
-export { FormContainer, FormInput, FormButton } from "./Auth";
+export { FormContainer, FormInput, FormButton, PasswordInput } from "./Auth";
