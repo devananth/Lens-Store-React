@@ -1,8 +1,11 @@
 import { NavBar, Product } from "../../components";
-import { useWishlist } from "../../contexts/wishlist-context";
+import { useWishlist } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./wishlist.css";
 
 const Wishlist = () => {
+  useDocumentTitle("Wishlist | Lens Store");
+
   const { wishlistState, wishlistDispatch } = useWishlist();
 
   const { wishlist } = wishlistState;

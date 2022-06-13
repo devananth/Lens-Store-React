@@ -1,6 +1,8 @@
 import { NavBar } from "../../components";
+import { useDocumentTitle } from "../../custom-hooks";
 
 const PageNotFound = () => {
+  useDocumentTitle("Page Not Found | Lens Store");
   return (
     <>
       <NavBar />

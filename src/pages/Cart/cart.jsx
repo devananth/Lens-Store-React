@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { NavBar, CartPriceCard } from "../../components";
 import { useCart } from "../../contexts";
 import { CartContainer } from "./CartContainer";
+import { useDocumentTitle } from "../../custom-hooks";
 
 const Cart = () => {
+  useDocumentTitle("Cart | Lens Store");
+
   const {
     cartState: { cart },
     cartDispatch,

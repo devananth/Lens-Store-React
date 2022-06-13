@@ -1,13 +1,28 @@
 import { SearchBar } from "./navbar-search";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
-import { useWishlist, useCart } from "../../contexts";
+import { useWishlist, useCart, useAuth } from "../../contexts";
+import { authActions } from "../../reducers/authReducer";
 
 const NavBar = () => {
   const { wishlistState } = useWishlist();
   const {
     cartState: { cart },
   } = useCart();
+
+  const navigate = useNavigate();
+
+  const {
+    authState: { isUserLoggedIn, userName },
+    authDispatch,
+  } = useAuth();
+
+  const logoutHandler = () => {
+    authDispatch({
+      type: authActions.DELETE_USER_DETAILS,
+    });
+    navigate("/");
+  };
 
   return (
     <header className="header d-flex col">
@@ -22,7 +37,7 @@ const NavBar = () => {
           </Link>
         </section>
         <SearchBar />
-        <section className="nav__right">
+        <section className="nav__right xy-center">
           <ul className="nav__list">
             <li className="nav__list__item">
               <Link to="/login">
@@ -30,7 +45,9 @@ const NavBar = () => {
                   <span className="icon nav__icon">
                     <i className="fas fa-user"></i>
                   </span>
-                  <span className="nav__icon__text">Login</span>
+                  <span className="nav__icon__text">
+                    {isUserLoggedIn ? `${userName}` : `Login`}
+                  </span>
                 </div>
               </Link>
             </li>
@@ -61,6 +78,13 @@ const NavBar = () => {
                 </div>
               </Link>
             </li>
+            {isUserLoggedIn && (
+              <li className="nav__list__item">
+                <button className="btn btn-primary" onClick={logoutHandler}>
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </section>
       </nav>
