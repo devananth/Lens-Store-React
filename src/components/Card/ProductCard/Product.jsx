@@ -15,6 +15,7 @@ const Product = ({ productDetails }) => {
     price: { earlier_price, current_price, offer_percentage },
     isNewBadge,
     rating,
+    isInStock,
   } = productDetails;
 
   const navigate = useNavigate();
@@ -94,9 +95,11 @@ const Product = ({ productDetails }) => {
           </div>
         </div>
       </div>
-      {/* { <div className="overlay-text d-flex xy-center txt-bold txt-3xl">
-        Out of Stock
-      </div> } */}
+      {!isInStock && (
+        <div className="overlay-text d-flex xy-center txt-bold txt-3xl">
+          Out of Stock
+        </div>
+      )}
     </div>
   );
 };
