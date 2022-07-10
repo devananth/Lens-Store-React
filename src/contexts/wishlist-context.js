@@ -42,7 +42,6 @@ const WishlistProvider = ({ children }) => {
   }, [response]);
 
   const addToWishlistServerCall = (product) => {
-    console.log("Add wishlist : ", product);
     callAPI({
       url: "/api/user/wishlist",
       method: "post",

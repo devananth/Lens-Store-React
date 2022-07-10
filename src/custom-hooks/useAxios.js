@@ -7,7 +7,7 @@ const useAxios = () => {
   const [error, setError] = useState(null);
 
   const callAPI = async (params) => {
-    console.log("Call Api : ", params);
+  
     setLoader(true);
     try {
       const apiResponse = await axios.request(params);
