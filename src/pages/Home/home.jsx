@@ -1,4 +1,4 @@
-import { NavBar, Footer, Divider } from "../../components";
+import { Footer, Divider } from "../../components";
 import { Banner } from "./banner";
 import { ShopByCategory } from "./shopByCategory";
 import { useDocumentTitle } from "../../custom-hooks";
@@ -8,7 +8,6 @@ const Home = () => {
   useDocumentTitle("Lens Store");
   return (
     <>
-      <NavBar />
       <Banner />
       <Divider />
       <Divider />

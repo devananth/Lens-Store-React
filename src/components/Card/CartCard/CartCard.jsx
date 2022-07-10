@@ -1,7 +1,8 @@
 import { QuantityBtn } from "./QuantityBtn";
 import { useCart, useWishlist } from "../../../contexts";
-import { CART_ACTIONS, WISHLIST_ACTIONS } from "../../../Utils";
+import { toast } from "react-toastify";
 import "./cart.css";
+import { useProductHandlers } from "../../../custom-hooks";
 
 const CartCard = ({ productDetails }) => {
   const {
@@ -11,11 +12,13 @@ const CartCard = ({ productDetails }) => {
     categoryName,
     brandName,
     price: { earlier_price, current_price, offer_percentage },
-    isInWishlist,
     isNewBadge,
     rating,
     qty,
   } = productDetails;
+
+  const { isInWishlist, wishlistClickHandler } =
+    useProductHandlers(productDetails);
 
   const { cart, removeFromCartServerCall, updateCartItemQuantityServerCall } =
     useCart();
@@ -36,8 +39,12 @@ const CartCard = ({ productDetails }) => {
   };
 
   const addToWishList = () => {
-    addToWishlistServerCall(productDetails);
-    removeFromCartServerCall(productDetails);
+    if (!isInWishlist) {
+      addToWishlistServerCall(productDetails);
+      removeFromCartServerCall(productDetails);
+    } else {
+      toast.info("Item already in wishlist");
+    }
   };
 
   return (
@@ -66,7 +73,7 @@ const CartCard = ({ productDetails }) => {
             className="btn btn-primary-outline w-100"
             onClick={addToWishList}
           >
-            Add to Wishlist
+            Add to wishlist
           </button>
         </div>
       </div>

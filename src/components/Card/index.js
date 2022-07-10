@@ -1,3 +1,5 @@
+export { ProductBtn } from "./ProductCard/ProductBtn";
+
 export { CategoryCard } from "./CategoryCard/CategoryCard";
 
 export { Product } from "./ProductCard/Product";

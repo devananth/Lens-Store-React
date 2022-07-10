@@ -15,18 +15,16 @@ const NavBar = () => {
     authDispatch,
   } = useAuth();
 
-  const logoutHandler = () => {
-    authDispatch({
-      type: authActions.DELETE_USER_DETAILS,
-    });
-    navigate("/");
-  };
-
   return (
     <header className="header d-flex col">
       <nav className="nav__container">
         <section className="nav__left d-flex gap-2 xy-center">
-          <div className="nav__brand txt-2xl txt-bold mr-1">Lens-Store</div>
+          <div
+            className="nav__brand txt-2xl txt-bold mr-1"
+            onClick={() => navigate("/")}
+          >
+            Lens-Store
+          </div>
           <Link to="/" className="txt-lg nav__link hide__mobile">
             Home
           </Link>
@@ -38,7 +36,7 @@ const NavBar = () => {
         <section className="nav__right xy-center">
           <ul className="nav__list">
             <li className="nav__list__item">
-              <Link to="/login">
+              <Link to="/profile">
                 <div className="badge-container d-flex col xy-center">
                   <span className="icon nav__icon">
                     <i className="fas fa-user"></i>
@@ -76,13 +74,6 @@ const NavBar = () => {
                 </div>
               </Link>
             </li>
-            {isUserLoggedIn && (
-              <li className="nav__list__item">
-                <button className="btn btn-primary" onClick={logoutHandler}>
-                  Logout
-                </button>
-              </li>
-            )}
           </ul>
         </section>
       </nav>

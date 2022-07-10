@@ -4,6 +4,6 @@ export { filterReducer } from "./filterReducer";
 
 export { initialFilterState } from "./constants";
 
-export { authReducer } from "./authReducer";
+export { authReducer, authActions } from "./authReducer";
 
 export { errorReducer } from "./errorReducer";
