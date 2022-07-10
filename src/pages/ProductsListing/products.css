@@ -12,9 +12,55 @@
     height: calc(100vh - 4rem);
     overflow: auto;
   }
+
+  .product__listing__wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    place-items: center;
+    overflow: auto;
+  }
+
+  .mobile__filter{
+    display : none;
+  }
   
   @media only screen and (max-width: 700px) {
     .products__filter {
       width: 100%;
+      display: none;
+    }
+
+    .mobile__filter{
+      display: flex;
+      height : 3rem;
+      position: fixed;
+      bottom: 0;
+      left : 0;
+      right:0;
+      z-index: 900;
+      padding : 5px 1rem;
+      background-color: var(--light-secondary-color);
+    }
+
+    .mobile__filter.true{
+      display : none;
+    }
+
+    .products__filter.true{
+      display: block;
+      height: calc(100vh - 7rem);
+      overflow: auto;
+      position: fixed;
+      z-index: 900;
+      background-color: white;
+    }
+
+    .products__wrapper{
+      flex-direction: column;
+    }
+
+    .products__container{
+      width : 100%;
+      height: calc(100vh - 12rem);
     }
   }

@@ -2,10 +2,7 @@ import { useCart } from "../../contexts";
 import { CartCard } from "../../components";
 
 const CartContainer = () => {
-  const {
-    cartState: { cart },
-    cartDispatch,
-  } = useCart();
+  const { cart } = useCart();
 
   return (
     <section className="cart__products__container d-flex col gap-2">

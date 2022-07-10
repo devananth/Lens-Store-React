@@ -5,10 +5,8 @@ import { useWishlist, useCart, useAuth } from "../../contexts";
 import { authActions } from "../../reducers/authReducer";
 
 const NavBar = () => {
-  const { wishlistState } = useWishlist();
-  const {
-    cartState: { cart },
-  } = useCart();
+  const { wishlist } = useWishlist();
+  const { cart } = useCart();
 
   const navigate = useNavigate();
 
@@ -57,7 +55,7 @@ const NavBar = () => {
                   <span className="icon nav__icon badge-container">
                     <i className="fas fa-heart"></i>
                     <span className="badge badge-icon d-flex xy-center txt-bold">
-                      {wishlistState.wishlist.length}
+                      {wishlist.length}
                     </span>
                   </span>
 
