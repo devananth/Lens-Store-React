@@ -60,7 +60,7 @@ const CartCard = ({ productDetails }) => {
 
         <div className="d-flex col gap-1">
           <button className="btn btn-primary w-100" onClick={removeFromCart}>
-            Remove to Cart
+            Remove from Cart
           </button>
           <button
             className="btn btn-primary-outline w-100"

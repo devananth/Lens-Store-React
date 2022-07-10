@@ -16,7 +16,7 @@ const ProductBtn = ({ productId, onClickHandler }) => {
         </button>
       ) : (
         <button className="btn btn-primary p-0-5 flex-1">
-          <Link to="/cart">Move to Cart</Link>
+          <Link to="/cart">Go to Cart</Link>
         </button>
       )}
     </>
