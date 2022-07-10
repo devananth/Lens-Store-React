@@ -14,6 +14,4 @@ export { PageNotFound } from "./PageNotFound/pageNotFound";
 
 export { ProductDetails } from "./products-details/ProductDetails";
 
-export { MockAPI } from "./mockman";
-
 export { Profile } from "./profile/Profile";

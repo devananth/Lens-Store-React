@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// import { MockApi } from "../components";
 import {
   Home,
   Login,
@@ -10,7 +9,6 @@ import {
   PageNotFound,
   ProductDetails,
   Profile,
-  MockAPI,
 } from "../pages";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 
@@ -28,7 +26,6 @@ const AllRoutes = () => {
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
-      {/* <Route path="/mockman" element={<MockAPI />} /> */}
     </Routes>
   );
 };
