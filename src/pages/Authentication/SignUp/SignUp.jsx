@@ -2,7 +2,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import {
-  NavBar,
   FormContainer,
   FormInput,
   FormButton,
@@ -81,7 +80,6 @@ const SignUp = () => {
 
   return (
     <>
-      <NavBar />
       <section
         className="d-flex xy-center"
         style={{ minHeight: "calc(100vh - 4rem)" }}

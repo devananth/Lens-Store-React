@@ -1,11 +1,9 @@
-import { NavBar } from "../../components";
 import { useDocumentTitle } from "../../custom-hooks";
 
 const PageNotFound = () => {
   useDocumentTitle("Page Not Found | Lens Store");
   return (
     <>
-      <NavBar />
       <section className="d-flex xy-center">
         <h1>Page Not Found : 404 Error</h1>
       </section>
