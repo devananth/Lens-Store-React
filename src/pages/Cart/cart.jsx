@@ -7,10 +7,7 @@ import { useDocumentTitle } from "../../custom-hooks";
 const Cart = () => {
   useDocumentTitle("Cart | Lens Store");
 
-  const {
-    cartState: { cart },
-    cartDispatch,
-  } = useCart();
+  const { cart } = useCart();
 
   return (
     <>

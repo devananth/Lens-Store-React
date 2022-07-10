@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useReducer } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import {
   NavBar,
@@ -37,6 +37,10 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const from = location?.state?.from ?? "/products";
+
   const loginHandler = async (event) => {
     event.preventDefault();
 
@@ -52,7 +56,7 @@ const Login = () => {
             type: authActions.SAVE_USER_DETAILS,
             payload: { authToken, userName, isUserLoggedIn: true },
           });
-          navigate("/products ");
+          navigate(from);
         }
       } catch (error) {
         setApiError("Invalid Credentials");

@@ -1,29 +1,14 @@
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route } from "react-router-dom";
-import {
-  Home,
-  Login,
-  SignUp,
-  ProductListing,
-  Wishlist,
-  Cart,
-  PageNotFound,
-  MockAPI,
-} from "./pages";
+import { AllRoutes } from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/products" element={<ProductListing />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/mockman" element={<MockAPI />} />
-      </Routes>
+      <ToastContainer theme="colored" autoClose={1000} position="bottom-left" />
+      <AllRoutes />
     </div>
   );
 }

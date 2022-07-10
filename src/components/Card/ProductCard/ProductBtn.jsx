@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../../contexts";
-import { itemNotInList, CART_ACTIONS } from "../../../Utils";
+import { isItemInList } from "../../../Utils";
 
 const ProductBtn = ({ productId, onClickHandler }) => {
-  const {
-    cartState: { cart },
-    cartDispatch,
-  } = useCart();
+  const { cart } = useCart();
 
   return (
     <>
-      {itemNotInList(productId, cart) ? (
-        <button className="btn btn-primary p-0-5" onClick={onClickHandler}>
+      {!isItemInList({ _id: productId }, cart) ? (
+        <button
+          className="btn btn-primary p-0-5 flex-1"
+          onClick={onClickHandler}
+        >
           Add to Cart
         </button>
       ) : (
-        <Link to={"/cart"} className="btn btn-primary">
-          Move to Cart
-        </Link>
+        <button className="btn btn-primary p-0-5 flex-1">
+          <Link to="/cart">Go to Cart</Link>
+        </button>
       )}
     </>
   );

@@ -3,10 +3,7 @@ import { getPriceCardDetails } from "../../../Utils";
 import "./cart.css";
 
 const CartPriceCard = () => {
-  const {
-    cartState: { cart },
-    cartDispatch,
-  } = useCart();
+  const { cart } = useCart();
 
   const { totalPrice, totalDiscount, totalDeliveryCharge } =
     getPriceCardDetails(cart);

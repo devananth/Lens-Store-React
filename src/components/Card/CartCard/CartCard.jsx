@@ -14,52 +14,30 @@ const CartCard = ({ productDetails }) => {
     isInWishlist,
     isNewBadge,
     rating,
-    quantity,
+    qty,
   } = productDetails;
 
-  const {
-    cartState: { cart },
-    cartDispatch,
-  } = useCart();
+  const { cart, removeFromCartServerCall, updateCartItemQuantityServerCall } =
+    useCart();
 
-  const {
-    wishlistState: { wishlist },
-    wishlistDispatch,
-  } = useWishlist();
+  const { wishlist, addToWishlistServerCall, removeFromWishlistServerCall } =
+    useWishlist();
 
-  const increaseQuantity = (id) => {
-    cartDispatch({
-      type: CART_ACTIONS.INCREASE_QUANTITY,
-      payload: { ...productDetails },
-    });
+  const increaseQuantity = () => {
+    updateCartItemQuantityServerCall(productDetails, "increment");
   };
 
   const decreaseQuantity = () => {
-    if (quantity > 0) {
-      cartDispatch({
-        type: CART_ACTIONS.DECREASE_QUANTITY,
-        payload: { ...productDetails },
-      });
-    }
+    updateCartItemQuantityServerCall(productDetails, "decrement");
   };
 
   const removeFromCart = () => {
-    cartDispatch({
-      type: CART_ACTIONS.REMOVE_FROM_CART,
-      payload: { ...productDetails },
-    });
+    removeFromCartServerCall(productDetails);
   };
 
   const addToWishList = () => {
-    const currProduct = wishlist.find(({ _id: id }) => id === _id);
-
-    if (currProduct === undefined) {
-      wishlistDispatch({
-        type: WISHLIST_ACTIONS.ADD_TO_WISHLIST,
-        payload: { ...productDetails },
-      });
-    }
-    removeFromCart();
+    addToWishlistServerCall(productDetails);
+    removeFromCartServerCall(productDetails);
   };
 
   return (
@@ -75,14 +53,14 @@ const CartCard = ({ productDetails }) => {
           <span className="txt-bold danger">{offer_percentage}%</span>
         </div>
         <QuantityBtn
-          quantity={quantity}
-          increaseQuantity={() => increaseQuantity(_id)}
-          decreaseQuantity={() => decreaseQuantity(_id)}
+          quantity={qty}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
         />
 
         <div className="d-flex col gap-1">
           <button className="btn btn-primary w-100" onClick={removeFromCart}>
-            Remove to Cart
+            Remove from Cart
           </button>
           <button
             className="btn btn-primary-outline w-100"

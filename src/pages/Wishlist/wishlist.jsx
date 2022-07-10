@@ -6,9 +6,7 @@ import "./wishlist.css";
 const Wishlist = () => {
   useDocumentTitle("Wishlist | Lens Store");
 
-  const { wishlistState, wishlistDispatch } = useWishlist();
-
-  const { wishlist } = wishlistState;
+  const { wishlist } = useWishlist();
 
   return (
     <>
