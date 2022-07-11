@@ -1,5 +1,6 @@
 import { Response } from "miragejs";
 import { formatDate, requiresAuth } from "../utils/authUtils";
+import { v4 as uuid } from "uuid";
 
 /**
  * All the routes related to address are present here.
@@ -49,6 +50,7 @@ export const addItemToAddressHandler = function (schema, request) {
     const { address } = JSON.parse(request.requestBody);
     userAddress.push({
       ...address,
+      _id: uuid(),
       createdAt: formatDate(),
       updatedAt: formatDate(),
     });
@@ -88,6 +90,7 @@ export const updateItemToAddressHandler = function (schema, request) {
     const updatedAddress = user.address.map((item) =>
       item._id === address._id ? address : item
     );
+
     this.db.users.update({ _id: userId }, { address: updatedAddress });
     return new Response(201, {}, { address: updatedAddress });
   } catch (error) {
