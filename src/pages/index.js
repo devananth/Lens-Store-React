@@ -12,4 +12,6 @@ export { Wishlist } from "./Wishlist/wishlist";
 
 export { PageNotFound } from "./PageNotFound/pageNotFound";
 
-export { MockAPI } from "./MockMan";
+export { ProductDetails } from "./products-details/ProductDetails";
+
+export { Profile } from "./profile/Profile";

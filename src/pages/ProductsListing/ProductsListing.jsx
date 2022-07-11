@@ -1,4 +1,3 @@
-import { NavBar } from "../../components";
 import { ProductsContainer } from "./ProductsContainer";
 import { ProductsFilter } from "./ProductsFilter";
 import { useDocumentTitle } from "../../custom-hooks";
@@ -8,7 +7,6 @@ const ProductListing = () => {
   useDocumentTitle("Products | Lens Store");
   return (
     <>
-      <NavBar />
       <div className="products__wrapper d-flex gap-3">
         <ProductsFilter />
         <ProductsContainer />

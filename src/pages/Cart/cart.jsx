@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavBar, CartPriceCard } from "../../components";
+import { CartPriceCard } from "../../components";
 import { useCart } from "../../contexts";
 import { CartContainer } from "./CartContainer";
 import { useDocumentTitle } from "../../custom-hooks";
@@ -11,7 +11,6 @@ const Cart = () => {
 
   return (
     <>
-      <NavBar />
       <h4 className="txt-bold txt-center my-2">My Cart {`(${cart.length})`}</h4>
       <section className="cart__wrapper d-flex">
         {cart.length ? (

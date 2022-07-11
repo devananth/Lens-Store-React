@@ -1,0 +1,19 @@
+.product__wrapper {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 70rem;
+    box-shadow: var(--box-shadow-2);
+    align-items: center;
+  }
+  
+  .product__wrapper .img__container {
+    max-width: 30rem;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 468px) {
+    .product__wrapper {
+      flex-direction: column;
+    }
+  }

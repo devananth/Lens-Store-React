@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useWishlist, useCart, useAuth } from "../../../contexts";
+import { useProductHandlers } from "../../../custom-hooks";
 import { WISHLIST_ACTIONS, CART_ACTIONS } from "../../../Utils";
 import { isItemInList } from "../../../Utils";
 import { ProductBtn } from "./ProductBtn";
@@ -21,46 +22,19 @@ const Product = ({ productDetails }) => {
   const navigate = useNavigate();
 
   const {
-    authState: { isUserLoggedIn },
-  } = useAuth();
-
-  const { wishlist, addToWishlistServerCall, removeFromWishlistServerCall } =
-    useWishlist();
-
-  const { cart, addToCartServerCall, removeFromCartServerCall } = useCart();
-
-  const isInWishlist = isItemInList(productDetails, wishlist);
-  const isInCart = isItemInList(productDetails, cart);
-
-  const addToCartHandler = () => {
-    if (!isUserLoggedIn) {
-      navigate("/login");
-    }
-
-    if (!isInCart) {
-      addToCartServerCall(productDetails);
-    } else {
-      removeFromCartServerCall(productDetails);
-    }
-  };
-
-  const wishlistClickHandler = () => {
-    if (!isUserLoggedIn) {
-      navigate("/login");
-    }
-
-    if (!isInWishlist) {
-      addToWishlistServerCall(productDetails);
-    } else {
-      removeFromWishlistServerCall(productDetails);
-    }
-  };
-
-  const iconColor = isInWishlist ? "red" : "black";
+    isInCart,
+    isInWishlist,
+    addToCartHandler,
+    wishlistClickHandler,
+    iconColor,
+  } = useProductHandlers(productDetails);
 
   return (
     <div className="card__vertical__container">
-      <div className="img__container">
+      <div
+        className="img__container cursor-ptr"
+        onClick={() => navigate(`/products/${_id}`)}
+      >
         <img src={image} alt={title} className="img-responsive card-img" />
         {isNewBadge && (
           <span className="txt-badge rounded card__badge">New Offer</span>

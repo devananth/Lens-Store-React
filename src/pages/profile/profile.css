@@ -1,0 +1,20 @@
+.profile__container{
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 40rem;
+    width: 100%;
+    border: 1px solid black;
+    margin : 1rem;
+}
+
+
+.profile__navbar {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+  
+.profile__navbar .active {
+    border-bottom: 2px solid blue;
+}

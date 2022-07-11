@@ -13,3 +13,8 @@
   cursor: pointer;
 }
 
+.main__contianer{
+  min-height: calc(100vh - 7rem);
+  overflow: auto;
+}
+
