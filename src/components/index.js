@@ -17,3 +17,5 @@ export { FilterList, FilterListItem } from "./ProductFilters";
 export { FormContainer, FormInput, FormButton, PasswordInput } from "./Auth";
 
 export { ProfileDetails } from "./ProfileCard/ProfileDetails";
+
+export { AddressManagement } from "./address-management/AddressManagement";

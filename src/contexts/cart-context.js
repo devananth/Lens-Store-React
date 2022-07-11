@@ -29,7 +29,6 @@ const CartProvider = ({ children }) => {
   }, [isUserLoggedIn]);
 
   useEffect(() => {
-    console.log("Cart : ", response);
     if (response) {
       const updatedList = response?.data?.cart;
 

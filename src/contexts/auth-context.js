@@ -20,6 +20,10 @@ const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const from = location?.state?.from ?? "/products";
+
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("loginDetails"));
 
@@ -28,7 +32,7 @@ const AuthProvider = ({ children }) => {
         type: authActions.SAVE_USER_DETAILS,
         payload: userDetails,
       });
-      navigate("/products");
+      navigate(from);
     }
   }, []);
 
