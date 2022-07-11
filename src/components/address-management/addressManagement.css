@@ -1,0 +1,31 @@
+.vertical__center {
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal__container {
+    display: flex;
+    padding: 1rem;
+  }
+  
+  .modal {
+    max-width: 30rem;
+    width: 100%;
+    background-color: white;
+    max-height: 100%;
+    overflow-y: scroll;
+    margin: 1rem;
+  }
+  
+  .btn {
+    font-weight: 600;
+  }
+  
+  .address__card {
+    width: max-content;
+  }
+  .btn[type="reset"] {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+  }
+  
