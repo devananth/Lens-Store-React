@@ -1,4 +1,3 @@
-#### (WeebO-frontend)
 
 <div align="center">
   
