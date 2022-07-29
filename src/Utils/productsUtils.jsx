@@ -92,7 +92,7 @@ const getFilteredProducts = (products) => {
   );
   const filteredByRating = filterByRating(
     filteredByBrand,
-    filterState.filterByRating
+    filterState.filterByRatings
   );
 
   const filteredByPriceRange = filterByPriceRange(
