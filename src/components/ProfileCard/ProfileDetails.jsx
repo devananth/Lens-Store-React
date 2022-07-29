@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useAuth } from "../../contexts";
+import { useAuth, useCart, useWishlist } from "../../contexts";
 import { authActions } from "../../reducers";
 
 const ProfileDetails = () => {
@@ -10,7 +10,12 @@ const ProfileDetails = () => {
     authDispatch,
   } = useAuth();
 
+  const { emptyCart } = useCart();
+  const { setWishlist } = useWishlist();
+
   const logoutHandler = () => {
+    emptyCart();
+    setWishlist([]);
     authDispatch({
       type: authActions.DELETE_USER_DETAILS,
     });

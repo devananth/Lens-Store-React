@@ -11,6 +11,7 @@ const initialwishlistState = {
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [toastMsg, setToastMsg] = useState("");
 
   const {
     authState: { isUserLoggedIn, authToken },
@@ -31,18 +32,15 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     if (response) {
       const updatedList = response?.data?.cart;
-
-      if (updatedList.length > cart.length) {
-        toast.success("Added to cart");
-      } else if (updatedList.length < cart.length) {
-        toast.success("Removed from cart");
-      }
       setCart(updatedList);
+      if (toastMsg) {
+        toast.success(toastMsg);
+      }
     }
   }, [response]);
 
   const addToCartServerCall = (product) => {
-    console.log("Add cart : ", product);
+    setToastMsg("Added to cart");
     callAPI({
       url: "/api/user/cart",
       method: "post",
@@ -52,6 +50,7 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCartServerCall = (product) => {
+    setToastMsg("Removed from Cart");
     callAPI({
       url: `/api/user/cart/${product._id}`,
       method: "delete",
@@ -68,6 +67,15 @@ const CartProvider = ({ children }) => {
     });
   };
 
+  const emptyCart = () => {
+    setToastMsg("");
+    callAPI({
+      url: `/api/user/cart`,
+      method: "delete",
+      headers: { authorization: authToken },
+    });
+  };
+
   const { Provider } = CartContext;
 
   const value = {
@@ -76,6 +84,7 @@ const CartProvider = ({ children }) => {
     addToCartServerCall,
     removeFromCartServerCall,
     updateCartItemQuantityServerCall,
+    emptyCart,
   };
 
   return <Provider value={value}>{children}</Provider>;
